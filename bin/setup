@@ -13,6 +13,10 @@ FileUtils.chdir APP_ROOT do
   # This script is idempotent, so that you can run it at anytime and get an expectable outcome.
   # Add necessary setup steps to this file.
 
+  puts "== Adding Heroku Remotes =="
+  system! "git remote add staging git@heroku.com:cubs-tickets-staging.git"
+  system! "git remote add production git@heroku.com:cubs-tickets-production.git"
+
   puts "== Installing dependencies =="
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
